@@ -1,40 +1,32 @@
-const uploadBtn = document.getElementById("uploadBtn");
-const uploadModal = document.getElementById("uploadModal");
-const closeModal = document.getElementById("closeModal");
-const confirmUpload = document.getElementById("confirmUpload");
-const videoFeed = document.getElementById("videoFeed");
+/*
+app.js (module) - handles Firebase Auth, Storage, Firestore, upload, views, likes, comments, follow
+Replace firebaseConfig with your project's config
+*/
 
-uploadBtn.onclick = () => uploadModal.classList.remove("hidden");
-closeModal.onclick = () => uploadModal.classList.add("hidden");
 
-confirmUpload.onclick = () => {
-  const file = document.getElementById("videoFile").files[0];
-  const title = document.getElementById("videoTitle").value;
-  if (!file || !title) {
-    alert("Vui lòng chọn video và nhập tiêu đề!");
-    return;
-  }
-  const url = URL.createObjectURL(file);
-  const videoCard = document.createElement("div");
-  videoCard.className = "video-card";
-  videoCard.innerHTML = `
-    <video class="video-thumb" src="${url}" controls></video>
-    <div class="video-info">
-      <h4>${title}</h4>
-      <p>0 lượt xem</p>
-    </div>
-  `;
-  videoFeed.prepend(videoCard);
-  uploadModal.classList.add("hidden");
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL, listAll } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js';
+import { getFirestore, collection, addDoc, doc, getDoc, setDoc, query, where, getDocs, orderBy, serverTimestamp, updateDoc, increment, writeBatch } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+
+// ====== CONFIG: Paste your Firebase config here ======
+const firebaseConfig = {
+apiKey: "YOUR_API_KEY",
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+projectId: "YOUR_PROJECT",
+storageBucket: "YOUR_PROJECT.appspot.com",
+messagingSenderId: "YOUR_SENDER_ID",
+appId: "YOUR_APP_ID"
 };
-// --- Xử lý chuyển tab --- //
-document.addEventListener("DOMContentLoaded", function() {
-  const pages = document.querySelectorAll(".page");
-  const navLinks = document.querySelectorAll(".nav-item");
+// =====================================================
 
-  function showPage(id) {
-    pages.forEach(page => {
-      page.style.display = (page.id === id) ? "block" : "none";
-    });
-  }
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const storage = getStorage(app);
+const db = getFirestore(app);
+
+
+// UI refs
