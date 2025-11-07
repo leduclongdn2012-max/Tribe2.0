@@ -27,3 +27,24 @@ confirmUpload.onclick = () => {
   videoFeed.prepend(videoCard);
   uploadModal.classList.add("hidden");
 };
+// --- Xử lý chuyển tab --- //
+document.addEventListener("DOMContentLoaded", function() {
+  const pages = document.querySelectorAll(".page");
+  const navLinks = document.querySelectorAll(".nav-item");
+
+  function showPage(id) {
+    pages.forEach(page => {
+      page.style.display = (page.id === id) ? "block" : "none";
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      const target = link.getAttribute("data-target");
+      showPage(target);
+    });
+  });
+
+  // Mặc định hiển thị Trang chủ khi load
+  showPage("home");
+});
