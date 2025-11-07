@@ -1,66 +1,50 @@
 <!DOCTYPE html>
-<button id="uploadOpenBtn">⬆️ Upload</button>
-<button id="authBtn">Đăng nhập</button>
-<div id="userMenu" class="hidden">
-<img id="userAvatar" alt="avatar" />
-<span id="userName"></span>
-<button id="signOutBtn">Đăng xuất</button>
-</div>
-</div>
-</header>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TribeTube</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">🌿 TribeTube</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Tìm kiếm video..." id="searchInput">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="user-actions">
+      <button id="uploadBtn">⬆️ Upload</button>
+      <img src="https://i.imgur.com/0y0y0y0.png" alt="Avatar" class="avatar">
+    </div>
+  </header>
 
+  <nav class="sidebar">
+    <a href="#">🏠 Trang chủ</a>
+    <a href="#">📺 Kênh theo dõi</a>
+    <a href="#">🔥 Xu hướng</a>
+    <a href="#">👤 Kênh của tôi</a>
+  </nav>
 
-<main class="layout">
-<aside class="left">
-<nav>
-<a href="#home" data-view="home">Trang chủ</a>
-<a href="#subs" data-view="subs">Kênh theo dõi</a>
-<a href="#trending" data-view="trending">Xu hướng</a>
-<a href="#profile" data-view="profile">Kênh của tôi</a>
-</nav>
-</aside>
+  <main class="main-content">
+    <h2>🎥 Gợi ý cho bạn</h2>
+    <div id="videoFeed" class="video-grid">
+      <!-- Video sẽ hiển thị tại đây -->
+    </div>
+  </main>
 
+  <!-- Modal upload -->
+  <div id="uploadModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <h3>Tải video lên</h3>
+      <input type="file" id="videoFile" accept="video/*">
+      <input type="text" id="videoTitle" placeholder="Tiêu đề">
+      <textarea id="videoDesc" placeholder="Mô tả video..."></textarea>
+      <button id="confirmUpload">Tải lên</button>
+    </div>
+  </div>
 
-<section class="center" id="centerArea">
-<!-- dynamic content inserted here -->
-</section>
-
-
-<aside class="right" id="rightAside">
-<h3>Gợi ý cho bạn</h3>
-<div id="recommendList"></div>
-</aside>
-</main>
-
-
-<!-- Upload modal (hidden) -->
-<div id="uploadModal" class="modal hidden">
-<div class="modal-inner">
-<h2>Upload video</h2>
-<input id="videoFile" type="file" accept="video/*" />
-<input id="videoTitle" placeholder="Tiêu đề" />
-<input id="videoTags" placeholder="Thẻ (phân tách bằng dấu phẩy)" />
-<button id="doUploadBtn">Tải lên</button>
-<button id="closeUploadBtn">Đóng</button>
-<div id="uploadProgress"></div>
-</div>
-</div>
-
-
-<!-- Video player modal -->
-<div id="playerModal" class="modal hidden">
-<div class="modal-inner player-inner">
-<button id="closePlayer">✖</button>
-<div id="playerArea"></div>
-<div id="videoMeta"></div>
-<div id="commentBox"></div>
-</div>
-</div>
-
-
-<script type="module" src="app.js"></script>
-<!-- Firebase SDKs are imported inside app.js as modules -->
+  <script src="app.js"></script>
 </body>
 </html>
-<link rel="stylesheet" href="style.css" />
-<script type="module" src="app.js"></script>
