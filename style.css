@@ -81,6 +81,11 @@ body {
   background-color: rgba(255,255,255,0.15);
 }
 
+.sidebar a:active {
+  background-color: rgba(255,255,255,0.3);
+  transform: scale(0.96);
+}
+
 /* Main content */
 .main-content {
   margin-left: 200px;
