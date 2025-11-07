@@ -1,75 +1,41 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TribeTube</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Đây là phần HTML chính -->
   <header class="header">
     <div class="logo">🌿 TribeTube</div>
-    <div class="search-bar">
-      <input type="text" placeholder="Tìm kiếm video..." id="searchInput">
-      <button id="searchBtn">🔍</button>
-    </div>
-    <div class="user-actions">
-      <button id="uploadBtn">⬆️ Upload</button>
-      <img src="https://i.imgur.com/0y0y0y0.png" alt="Avatar" class="avatar">
-    </div>
+    ...
   </header>
 
   <nav class="sidebar">
-    <a href="#">🏠 Trang chủ</a>
-    <a href="#">📺 Kênh theo dõi</a>
-    <a href="#">🔥 Xu hướng</a>
-    <a href="#">👤 Kênh của tôi</a>
+    <div class="nav-item" data-target="home">🏠 Trang chủ</div>
+    <div class="nav-item" data-target="follow">📺 Kênh theo dõi</div>
+    <div class="nav-item" data-target="trend">🔥 Xu hướng</div>
+    <div class="nav-item" data-target="mychannel">👤 Kênh của tôi</div>
   </nav>
 
   <main class="main-content">
-    <h2>🎥 Gợi ý cho bạn</h2>
-    <div id="videoFeed" class="video-grid">
-      <!-- Video sẽ hiển thị tại đây -->
+    <div id="home" class="page">
+      <h2>Trang chủ</h2>
+    </div>
+    <div id="follow" class="page" style="display:none;">
+      <h2>Kênh theo dõi</h2>
+    </div>
+    <div id="trend" class="page" style="display:none;">
+      <h2>Xu hướng</h2>
+    </div>
+    <div id="mychannel" class="page" style="display:none;">
+      <h2>Kênh của tôi</h2>
     </div>
   </main>
-
-  <!-- Modal upload -->
-  <div id="uploadModal" class="modal hidden">
-    <div class="modal-content">
-      <span id="closeModal">&times;</span>
-      <h3>Tải video lên</h3>
-      <input type="file" id="videoFile" accept="video/*">
-      <input type="text" id="videoTitle" placeholder="Tiêu đề">
-      <textarea id="videoDesc" placeholder="Mô tả video..."></textarea>
-      <button id="confirmUpload">Tải lên</button>
-    </div>
-  </div>
 
   <script src="app.js"></script>
 </body>
 </html>
-
-<link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
-<div class="sidebar">
-  <div class="nav-item" data-target="home">Trang chủ</div>
-  <div class="nav-item" data-target="follow">Kênh theo dõi</div>
-  <div class="nav-item" data-target="trend">Xu hướng</div>
-  <div class="nav-item" data-target="mychannel">Kênh của tôi</div>
-</div>
-<div id="home" class="page">
-  <h2>Đây là Trang chủ</h2>
-  <!-- danh sách video hoặc gợi ý -->
-</div>
-
-<div id="follow" class="page" style="display:none;">
-  <h2>Kênh bạn theo dõi</h2>
-</div>
-
-<div id="trend" class="page" style="display:none;">
-  <h2>Xu hướng hôm nay</h2>
-</div>
-
-<div id="mychannel" class="page" style="display:none;">
-  <h2>Kênh của tôi</h2>
-</div>
