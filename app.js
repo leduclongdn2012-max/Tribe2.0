@@ -38,13 +38,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      const target = link.getAttribute("data-target");
-      showPage(target);
-    });
-  });
-
-  // Mặc định hiển thị Trang chủ khi load
-  showPage("home");
-});
