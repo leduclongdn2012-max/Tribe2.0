@@ -1,41 +1,46 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TribeTube</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+</nav>
+</aside>
 
-  <!-- Đây là phần HTML chính -->
-  <header class="header">
-    <div class="logo">🌿 TribeTube</div>
-    ...
-  </header>
 
-  <nav class="sidebar">
-    <div class="nav-item" data-target="home">🏠 Trang chủ</div>
-    <div class="nav-item" data-target="follow">📺 Kênh theo dõi</div>
-    <div class="nav-item" data-target="trend">🔥 Xu hướng</div>
-    <div class="nav-item" data-target="mychannel">👤 Kênh của tôi</div>
-  </nav>
+<section class="center" id="centerArea">
+<!-- dynamic content inserted here -->
+</section>
 
-  <main class="main-content">
-    <div id="home" class="page">
-      <h2>Trang chủ</h2>
-    </div>
-    <div id="follow" class="page" style="display:none;">
-      <h2>Kênh theo dõi</h2>
-    </div>
-    <div id="trend" class="page" style="display:none;">
-      <h2>Xu hướng</h2>
-    </div>
-    <div id="mychannel" class="page" style="display:none;">
-      <h2>Kênh của tôi</h2>
-    </div>
-  </main>
 
-  <script src="app.js"></script>
+<aside class="right" id="rightAside">
+<h3>Gợi ý cho bạn</h3>
+<div id="recommendList"></div>
+</aside>
+</main>
+
+
+<!-- Upload modal (hidden) -->
+<div id="uploadModal" class="modal hidden">
+<div class="modal-inner">
+<h2>Upload video</h2>
+<input id="videoFile" type="file" accept="video/*" />
+<input id="videoTitle" placeholder="Tiêu đề" />
+<input id="videoTags" placeholder="Thẻ (phân tách bằng dấu phẩy)" />
+<button id="doUploadBtn">Tải lên</button>
+<button id="closeUploadBtn">Đóng</button>
+<div id="uploadProgress"></div>
+</div>
+</div>
+
+
+<!-- Video player modal -->
+<div id="playerModal" class="modal hidden">
+<div class="modal-inner player-inner">
+<button id="closePlayer">✖</button>
+<div id="playerArea"></div>
+<div id="videoMeta"></div>
+<div id="commentBox"></div>
+</div>
+</div>
+
+
+<script type="module" src="app.js"></script>
+<!-- Firebase SDKs are imported inside app.js as modules -->
 </body>
 </html>
