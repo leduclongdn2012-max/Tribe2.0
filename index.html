@@ -3,42 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TribeTube - Gợi ý</title>
+  <title>TribeTube</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="logo">🌿 TribeTube</div>
-    <div class="search-bar">
-      <input type="text" placeholder="Tìm kiếm video..." id="searchInput">
-      <button id="searchBtn">🔍</button>
+  <!-- Đăng nhập -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <h2>🌿 TribeTube</h2>
+      <input type="text" id="username" placeholder="Tên người dùng">
+      <input type="password" id="password" placeholder="Mật khẩu">
+      <button id="loginBtn">Đăng nhập</button>
+      <p id="signupHint">Chưa có tài khoản? <span id="signupToggle">Đăng ký</span></p>
     </div>
-    <div class="user-actions">
-      <button id="uploadBtn">⬆️ Upload</button>
-      <img src="https://i.imgur.com/0y0y0y0.png" alt="Avatar" class="avatar">
-    </div>
-  </header>
+  </div>
 
-  <nav class="sidebar">
-    <a href="home.html">🏠 Trang chủ</a>
-    <a href="following.html">📺 Kênh theo dõi</a>
-    <a href="trend.html">🔥 Xu hướng</a>
-    <a href="mychannel.html">👤 Kênh của tôi</a>
-  </nav>
+  <!-- Ứng dụng chính -->
+  <div id="app" class="hidden">
+    <header class="header">
+      <div class="logo">🌿 TribeTube</div>
+      <div class="search-bar">
+        <input type="text" placeholder="Tìm kiếm video..." id="searchInput">
+        <button id="searchBtn">🔍</button>
+      </div>
+      <div class="user-actions">
+        <button id="uploadBtn">⬆️ Upload</button>
+        <img id="userAvatar" src="https://i.imgur.com/0y0y0y0.png" class="avatar">
+        <button id="logoutBtn" class="logout">Đăng xuất</button>
+      </div>
+    </header>
 
-  <main class="main-content">
-    <h2>🎥 Gợi ý cho bạn</h2>
-    <div id="videoFeed" class="video-grid"></div>
-  </main>
+    <nav class="sidebar">
+      <a href="#" data-page="home" class="active">🏠 Trang chủ</a>
+      <a href="#" data-page="following">📺 Kênh theo dõi</a>
+      <a href="#" data-page="trend">🔥 Xu hướng</a>
+      <a href="#" data-page="mychannel">👤 Kênh của tôi</a>
+    </nav>
 
-  <div id="uploadModal" class="modal hidden">
-    <div class="modal-content">
-      <span id="closeModal">&times;</span>
-      <h3>Tải video lên</h3>
-      <input type="file" id="videoFile" accept="video/*">
-      <input type="text" id="videoTitle" placeholder="Tiêu đề">
-      <textarea id="videoDesc" placeholder="Mô tả video..."></textarea>
-      <button id="confirmUpload">Tải lên</button>
+    <main class="main-content" id="mainContent"></main>
+
+    <!-- Modal upload -->
+    <div id="uploadModal" class="modal hidden">
+      <div class="modal-content">
+        <span id="closeModal">&times;</span>
+        <h3>Tải video lên</h3>
+        <input type="file" id="videoFile" accept="video/*">
+        <input type="text" id="videoTitle" placeholder="Tiêu đề">
+        <textarea id="videoDesc" placeholder="Mô tả video..."></textarea>
+        <button id="confirmUpload">Tải lên</button>
+      </div>
     </div>
   </div>
 
