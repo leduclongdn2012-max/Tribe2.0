@@ -14,7 +14,7 @@
       <input type="text" id="username" placeholder="Tên người dùng">
       <input type="password" id="password" placeholder="Mật khẩu">
       <button id="loginBtn">Đăng nhập</button>
-      <p id="signupHint">Chưa có tài khoản? <span id="signupToggle">Đăng ký</span></p>
+      <p id="signupHint">Chưa có tài khoản? <span id="signupToggle" class="link-like">Đăng ký</span></p>
     </div>
   </div>
 
@@ -28,7 +28,7 @@
       </div>
       <div class="user-actions">
         <button id="uploadBtn">⬆️ Upload</button>
-        <img id="userAvatar" src="https://i.imgur.com/0y0y0y0.png" class="avatar">
+        <img id="userAvatar" src="https://i.imgur.com/4Z1Z9YB.png" class="avatar" alt="avatar">
         <button id="logoutBtn" class="logout">Đăng xuất</button>
       </div>
     </header>
@@ -45,7 +45,7 @@
     <!-- Modal upload -->
     <div id="uploadModal" class="modal hidden">
       <div class="modal-content">
-        <span id="closeModal">&times;</span>
+        <span id="closeModal" class="close">&times;</span>
         <h3>Tải video lên</h3>
         <input type="file" id="videoFile" accept="video/*">
         <input type="text" id="videoTitle" placeholder="Tiêu đề">
